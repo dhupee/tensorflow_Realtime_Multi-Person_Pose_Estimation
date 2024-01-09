@@ -1,0 +1,4 @@
+This folder contain open_pose network model before edited to simplify writing by the author, probably.
+
+source https://github.com/michalfaber/tensorflow_Realtime_Multi-Person_Pose_Estimation/releases/
+
