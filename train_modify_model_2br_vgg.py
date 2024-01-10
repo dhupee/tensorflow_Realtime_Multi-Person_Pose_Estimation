@@ -42,6 +42,12 @@ from_vgg = {
     'VGG/backbone/block4_conv2': 'block4_conv2'
 }
 
+def check_gpu():
+        physical_devices = tf.config.list_physical_devices('GPU')
+        if not physical_devices:
+            raise ValueError("No GPU found. Make sure you have a GPU available.")
+
+        tf.config.experimental.set_memory_growth(physical_devices[0], True)
 
 def load_initial_vgg19_weights(model):
     """
@@ -250,6 +256,9 @@ def train(ds_train, ds_val, model, optimizer, ckpt, last_epoch, last_step, max_e
 
 
 if __name__ == '__main__':
+
+    # checking if GPU is available
+    check_gpu()
 
     # registering custom blocks types
 
